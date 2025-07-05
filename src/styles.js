@@ -1,59 +1,57 @@
-// styles.js
 export const styles = {
   container: {
-    maxWidth: 960,
-    margin: "0 auto",
-    padding: 24,
-    fontFamily: "'Segoe UI', sans-serif",
-    backgroundColor: "#f9f9f9",
-    color: "#333",
-    minHeight: "100vh",
+    fontFamily: "Inter, sans-serif",
+    backgroundColor: "#f9fbfc",
+    padding: "32px",
+    minHeight: "100vh"
   },
+
   title: {
-    fontSize: 26,
-    fontWeight: "bold",
-    marginBottom: 20,
+    fontSize: "28px",
+    marginBottom: "24px",
+    color: "#2c3e50"
   },
-  footer: {
-    marginTop: 40,
-    fontSize: 12,
-    color: "#999",
-    textAlign: "center",
-  },
-  input: {
-    padding: 10,
-    fontSize: 16,
-    width: 300,
-    marginRight: 12,
+
+  dropdown: {
+    padding: "10px 12px",
+    borderRadius: "8px",
     border: "1px solid #ccc",
-    borderRadius: 4,
-  },
-  select: {
-    padding: 10,
-    fontSize: 16,
-    width: 320,
-    border: "1px solid #ccc",
-    borderRadius: 4,
-  },
-  table: {
-    marginTop: 24,
+    fontSize: "15px",
     width: "100%",
-    borderCollapse: "collapse",
-    backgroundColor: "#fff",
+    boxShadow: "0 2px 4px rgba(0,0,0,0.05)"
   },
-  th: {
-    backgroundColor: "#ececec",
-    padding: 8,
-    border: "1px solid #ddd",
-    textAlign: "left",
+
+  input: {
+    padding: "10px 12px",
+    borderRadius: "8px",
+    border: "1px solid #ccc",
+    fontSize: "15px",
+    width: "100%",
+    boxShadow: "0 2px 4px rgba(0,0,0,0.05)"
   },
-  td: {
-    padding: 8,
-    border: "1px solid #ddd",
+
+  exportButton: {
+    backgroundColor: "#2b5dab",
+    color: "#fff",
+    border: "none",
+    borderRadius: "8px",
+    padding: "8px 16px",
+    fontSize: "14px",
+    cursor: "pointer",
+    transition: "background 0.3s ease, transform 0.2s ease"
   },
+
   noResult: {
-    marginTop: 24,
-    fontStyle: "italic",
-    color: "#777",
+    fontSize: "16px",
+    color: "#c0392b",
+    marginTop: "12px"
   },
+
+  footer: {
+    marginTop: "40px",
+    fontSize: "14px",
+    color: "#777",
+    textAlign: "center"
+  }
 };
+

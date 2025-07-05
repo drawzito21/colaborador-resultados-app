@@ -12,39 +12,14 @@ import {
   PerformanceChart
 } from "./components";
 import Registro from "./pages/Registro";
-
-const BotaoRegistro = ({ colaborador }) => {
-  const navigate = useNavigate();
-
-  const handleClick = () => {
-    navigate(`/registrar/${colaborador.id}`, {
-      state: { colaborador }
-    });
-  };
-
-  return (
-    <button
-      onClick={handleClick}
-      style={{
-        padding: "8px 16px",
-        backgroundColor: "#4caf50",
-        color: "#fff",
-        border: "none",
-        borderRadius: "4px",
-        cursor: "pointer",
-        margin: "8px 0",
-        minWidth: "200px"
-      }}
-    >
-      📝 Registrar para {colaborador.nome}
-    </button>
-  );
-};
+import Home from "./pages/Home";
 
 function App() {
+  const navigate = useNavigate();
   const [data, setData] = useState([]);
   const [selectedName, setSelectedName] = useState("");
   const [selectedSetor, setSelectedSetor] = useState("");
+  const [selectedAno, setSelectedAno] = useState("");
   const [selectedMes, setSelectedMes] = useState("");
   const [darkMode, setDarkMode] = useState(false);
 
@@ -76,35 +51,73 @@ function App() {
     return Array.from(setores).sort();
   }, [data]);
 
+  const uniqueAnos = useMemo(() => {
+    const anos = new Set();
+    data.forEach((item) => item.Ano && anos.add(item.Ano));
+    return Array.from(anos).sort().reverse();
+  }, [data]);
+
+  const ordemMeses = [
+    "janeiro", "fevereiro", "março", "abril", "maio", "junho",
+    "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"
+  ];
+
   const uniqueMeses = useMemo(() => {
-    const meses = new Set();
-    data.forEach((item) => item.Mes && meses.add(item.Mes));
-    return Array.from(meses).sort();
+    const mesesSet = new Set();
+    data.forEach((item) => {
+      if (item.Mes) {
+        const partes = item.Mes.trim().split(" ");
+        if (partes.length >= 1) {
+          mesesSet.add(partes[0].toLowerCase());
+        }
+      }
+    });
+    const mesesArray = Array.from(mesesSet);
+    return ordemMeses.filter((mes) => mesesArray.includes(mes));
   }, [data]);
 
   const displayData = useMemo(() => {
     return data.filter((d) => {
+      const partesMes = d.Mes ? d.Mes.toLowerCase().trim().split(" ") : [];
+      const mesTexto = partesMes[0] || "";
       const matchName = selectedName ? d.Nome === selectedName : true;
       const matchSetor = selectedSetor ? d.Setor === selectedSetor : true;
-      const matchMes = selectedMes ? d.Mes === selectedMes : true;
-      return matchName && matchSetor && matchMes;
+      const matchAno = selectedAno ? d.Ano.trim() === selectedAno : true;
+      const matchMes = selectedMes ? mesTexto === selectedMes : true;
+      return matchName && matchSetor && matchAno && matchMes;
     });
-  }, [selectedName, selectedSetor, selectedMes, data]);
-
-  const handleSelectChange = (e) => {
-    setSelectedName(e.target.value);
-  };
+  }, [selectedName, selectedSetor, selectedAno, selectedMes, data]);
 
   const handleExportCsv = () => {
     exportCsv(displayData, "colaboradores_filtrados.csv");
   };
 
-  const Home = () => (
+  const filtrosAtivos = selectedName || selectedSetor || selectedAno || selectedMes;
+
+  const homeProps = {
+    data,
+    selectedName,
+    setSelectedName,
+    selectedSetor,
+    setSelectedSetor,
+    selectedAno,
+    setSelectedAno,
+    selectedMes,
+    setSelectedMes,
+    uniqueNames,
+    uniqueSetores,
+    uniqueAnos,
+    uniqueMeses
+  };
+
+  return (
     <div
       style={{
         ...styles.container,
         backgroundColor: theme.background,
-        color: theme.text
+        color: theme.text,
+        minHeight: "100vh",
+        padding: "32px"
       }}
     >
       <DarkModeToggle
@@ -112,94 +125,80 @@ function App() {
         onToggle={() => setDarkMode(!darkMode)}
       />
 
-      <h2 style={styles.title}>Buscar Colaborador Versão 4</h2>
+      <Routes>
+        <Route path="/" element={<Home {...homeProps} />} />
+        <Route path="/registrar/:id" element={<Registro />} />
+      </Routes>
 
-      <div
-        style={{
-          display: "flex",
-          flexWrap: "wrap",
-          gap: "24px",
-          marginBottom: "24px",
-          alignItems: "flex-start"
-        }}
-      >
-        <div style={{ flex: "1 1 240px" }}>
-          <NameDropdown
-            names={uniqueNames}
-            selected={selectedName}
-            onChange={handleSelectChange}
-          />
-        </div>
+      {filtrosAtivos && displayData.length === 0 && data.length > 0 && (
+        <p style={styles.noResult}>🔍 Nenhum resultado encontrado.</p>
+      )}
 
-        <div style={{ flex: "1 1 240px" }}>
-          <NameDropdown
-            names={uniqueSetores}
-            selected={selectedSetor}
-            onChange={(e) => setSelectedSetor(e.target.value)}
-          />
-        </div>
+      {filtrosAtivos && displayData.length > 0 && (
+        <div
+          style={{
+            backgroundColor: "#fff",
+            borderRadius: "10px",
+            boxShadow: "0 2px 6px rgba(0,0,0,0.08)",
+            padding: "32px",
+            marginTop: "32px"
+          }}
+        >
+          <h3 style={{ marginBottom: "16px", fontSize: "20px" }}>
+            📊 Resultados filtrados
+          </h3>
 
-        <div style={{ flex: "1 1 240px" }}>
-          <NameDropdown
-            names={uniqueMeses}
-            selected={selectedMes}
-            onChange={(e) => setSelectedMes(e.target.value)}
-          />
-        </div>
-      </div>
-
-      {(selectedName || selectedSetor || selectedMes) &&
-        displayData.length === 0 &&
-        data.length > 0 && (
-          <p style={styles.noResult}>🔍 Nenhum resultado encontrado.</p>
-        )}
-
-      {displayData.length > 0 && (
-        <>
           <DataTable rows={displayData} theme={theme} />
 
           <div
             style={{
               display: "flex",
+              justifyContent: "flex-start",
               gap: "12px",
-              marginTop: "12px",
-              flexWrap: "wrap",
-              alignItems: "flex-start"
+              marginTop: "24px",
+              flexWrap: "wrap"
             }}
           >
-            <div style={{ flex: "1", minWidth: "200px" }}>
-              <button
-                onClick={handleExportCsv}
-                style={{
-                  ...styles.exportButton,
-                  margin: "8px 0",
-                  minWidth: "100%"
-                }}
-              >
-                📤 Exportar CSV
-              </button>
-            </div>
+            <button
+              onClick={handleExportCsv}
+              style={{ ...styles.exportButton, minWidth: "160px" }}
+            >
+              📤 Exportar CSV
+            </button>
 
-            <div style={{ flex: "1", minWidth: "200px" }}>
-              <BotaoRegistro colaborador={displayData[0]} />
-            </div>
+            <button
+              onClick={() =>
+                navigate(`/registrar/${displayData[0].id}`, {
+                  state: { colaborador: displayData[0] }
+                })
+              }
+              style={{
+                ...styles.exportButton,
+                backgroundColor: "#4caf50",
+                minWidth: "160px"
+              }}
+            >
+              📝 Registrar para {displayData[0].nome}
+            </button>
           </div>
 
-          <PerformanceChart data={displayData} theme={theme} />
-        </>
+          <div
+            style={{
+              marginTop: "32px",
+              borderRadius: "10px",
+              padding: "16px",
+              backgroundColor: "#fafafa"
+            }}
+          >
+            <PerformanceChart data={displayData} theme={theme} />
+          </div>
+        </div>
       )}
 
       <footer style={styles.footer}>
         Desenvolvido por <strong>André Tavares 😎</strong>
       </footer>
     </div>
-  );
-
-  return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/registrar/:id" element={<Registro />} />
-    </Routes>
   );
 }
 

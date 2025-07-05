@@ -1,127 +1,127 @@
-Nome,Mes,Finalizados,Score,Setor
-Carina Rocha de Souza Silva,agosto 2024,118,4.69,Financeiro
-Carina Rocha de Souza Silva,setembro 2024,145,4.79,Financeiro
-Carina Rocha de Souza Silva,outubro 2024,229,4.90,Financeiro
-Carina Rocha de Souza Silva,novembro 2024,295,4.71,Financeiro
-Carina Rocha de Souza Silva,dezembro 2024,337,4.72,Financeiro
-Dayane Alves Gouveia,junho 2024,90,4.77,Financeiro
-Dayane Alves Gouveia,julho 2024,208,4.73,Financeiro
-Dayane Alves Gouveia,agosto 2024,282,4.78,Financeiro
-Dayane Alves Gouveia,setembro 2024,309,4.78,Financeiro
-Dayane Alves Gouveia,outubro 2024,303,4.86,Financeiro
-Dayane Alves Gouveia,novembro 2024,286,4.79,Financeiro
-Dayane Alves Gouveia,dezembro 2024,406,4.62,Financeiro
-Gabriel Davi Rocha Nobelino,agosto 2024,1,-,Financeiro
-Gabriel Davi Rocha Nobelino,setembro 2024,108,4.81,Financeiro
-Gabriel Davi Rocha Nobelino,outubro 2024,217,4.79,Financeiro
-Gabriel Davi Rocha Nobelino,novembro 2024,264,4.81,Financeiro
-Gabriel Davi Rocha Nobelino,dezembro 2024,289,4.69,Financeiro
-Joyce Porto Barbosa Mendes,agosto 2024,79,4.69,Financeiro
-Joyce Porto Barbosa Mendes,setembro 2024,208,4.69,Financeiro
-Joyce Porto Barbosa Mendes,outubro 2024,196,4.79,Financeiro
-Joyce Porto Barbosa Mendes,novembro 2024,189,4.86,Financeiro
-Joyce Porto Barbosa Mendes,dezembro 2024,281,4.66,Financeiro
-Leandro Lima dos Santos,janeiro 2024,255,4.89,Financeiro
-Leandro Lima dos Santos,fevereiro 2024,214,4.80,Financeiro
-Leandro Lima dos Santos,março 2024,236,4.82,Financeiro
-Leandro Lima dos Santos,abril 2024,313,4.83,Financeiro
-Leandro Lima dos Santos,maio 2024,304,4.81,Financeiro
-Leandro Lima dos Santos,junho 2024,208,4.80,Financeiro
-Leandro Lima dos Santos,julho 2024,181,4.90,Financeiro
-Leandro Lima dos Santos,agosto 2024,120,4.88,Financeiro
-Leandro Lima dos Santos,setembro 2024,170,4.88,Financeiro
-Leandro Lima dos Santos,outubro 2024,221,4.85,Financeiro
-Leandro Lima dos Santos,novembro 2024,195,4.77,Financeiro
-Leandro Lima dos Santos,dezembro 2024,270,4.73,Financeiro
-Maxsuel Borges da Silva,junho 2024,67,4.54,Financeiro
-Maxsuel Borges da Silva,julho 2024,179,4.24,Financeiro
-Maxsuel Borges da Silva,agosto 2024,180,4.32,Financeiro
-Maxsuel Borges da Silva,setembro 2024,208,4.67,Financeiro
-Maxsuel Borges da Silva,outubro 2024,225,4.76,Financeiro
-Maxsuel Borges da Silva,novembro 2024,216,4.73,Financeiro
-Maxsuel Borges da Silva,dezembro 2024,263,4.70,Financeiro
-Carina Rocha de Souza Silva,junho 2025,259,4.59,Financeiro
-Dayane Alves Gouveia,junho 2025,268,4.74,Financeiro
-Joyce Porto Barbosa Mendes,junho 2025,228,4.73,Financeiro
-Leandro Lima dos Santos,junho 2025,222,4.83,Financeiro
-Gabriel Davi Rocha Nobelino,junho 2025,216,4.77,Financeiro
-Valkênia R. de Araújo Soares,junho 2025,204,4.39,Financeiro
-Renata Alves Henriques,junho 2025,167,4.72,Financeiro
-Maxsuel Borges da Silva,junho 2025,96,4.65,Financeiro
+Nome,Mes,Finalizados,Score,Setor,Ano
+Carina Rocha de Souza Silva,agosto 2024,118,4.69,Financeiro, 2024
+Carina Rocha de Souza Silva,setembro 2024,145,4.79,Financeiro, 2024
+Carina Rocha de Souza Silva,outubro 2024,229,4.90,Financeiro, 2024
+Carina Rocha de Souza Silva,novembro 2024,295,4.71,Financeiro, 2024
+Carina Rocha de Souza Silva,dezembro 2024,337,4.72,Financeiro, 2024
+Dayane Alves Gouveia,junho 2024,90,4.77,Financeiro, 2024
+Dayane Alves Gouveia,julho 2024,208,4.73,Financeiro, 2024
+Dayane Alves Gouveia,agosto 2024,282,4.78,Financeiro, 2024
+Dayane Alves Gouveia,setembro 2024,309,4.78,Financeiro, 2024
+Dayane Alves Gouveia,outubro 2024,303,4.86,Financeiro, 2024
+Dayane Alves Gouveia,novembro 2024,286,4.79,Financeiro, 2024
+Dayane Alves Gouveia,dezembro 2024,406,4.62,Financeiro, 2024
+Gabriel Davi Rocha Nobelino,agosto 2024,1,-,Financeiro, 2024
+Gabriel Davi Rocha Nobelino,setembro 2024,108,4.81,Financeiro, 2024
+Gabriel Davi Rocha Nobelino,outubro 2024,217,4.79,Financeiro, 2024
+Gabriel Davi Rocha Nobelino,novembro 2024,264,4.81,Financeiro, 2024
+Gabriel Davi Rocha Nobelino,dezembro 2024,289,4.69,Financeiro, 2024
+Joyce Porto Barbosa Mendes,agosto 2024,79,4.69,Financeiro, 2024
+Joyce Porto Barbosa Mendes,setembro 2024,208,4.69,Financeiro, 2024
+Joyce Porto Barbosa Mendes,outubro 2024,196,4.79,Financeiro, 2024
+Joyce Porto Barbosa Mendes,novembro 2024,189,4.86,Financeiro, 2024
+Joyce Porto Barbosa Mendes,dezembro 2024,281,4.66,Financeiro, 2024
+Leandro Lima dos Santos,janeiro 2024,255,4.89,Financeiro, 2024
+Leandro Lima dos Santos,fevereiro 2024,214,4.80,Financeiro, 2024
+Leandro Lima dos Santos,março 2024,236,4.82,Financeiro, 2024
+Leandro Lima dos Santos,abril 2024,313,4.83,Financeiro, 2024
+Leandro Lima dos Santos,maio 2024,304,4.81,Financeiro, 2024
+Leandro Lima dos Santos,junho 2024,208,4.80,Financeiro, 2024
+Leandro Lima dos Santos,julho 2024,181,4.90,Financeiro, 2024
+Leandro Lima dos Santos,agosto 2024,120,4.88,Financeiro, 2024
+Leandro Lima dos Santos,setembro 2024,170,4.88,Financeiro, 2024
+Leandro Lima dos Santos,outubro 2024,221,4.85,Financeiro, 2024
+Leandro Lima dos Santos,novembro 2024,195,4.77,Financeiro, 2024
+Leandro Lima dos Santos,dezembro 2024,270,4.73,Financeiro, 2024
+Maxsuel Borges da Silva,junho 2024,67,4.54,Financeiro, 2024
+Maxsuel Borges da Silva,julho 2024,179,4.24,Financeiro, 2024
+Maxsuel Borges da Silva,agosto 2024,180,4.32,Financeiro, 2024
+Maxsuel Borges da Silva,setembro 2024,208,4.67,Financeiro, 2024
+Maxsuel Borges da Silva,outubro 2024,225,4.76,Financeiro, 2024
+Maxsuel Borges da Silva,novembro 2024,216,4.73,Financeiro, 2024
+Maxsuel Borges da Silva,dezembro 2024,263,4.70,Financeiro, 2024
+Carina Rocha de Souza Silva,junho 2025,259,4.59,Financeiro, 2025
+Dayane Alves Gouveia,junho 2025,268,4.74,Financeiro, 2025
+Joyce Porto Barbosa Mendes,junho 2025,228,4.73,Financeiro, 2025
+Leandro Lima dos Santos,junho 2025,222,4.83,Financeiro, 2025
+Gabriel Davi Rocha Nobelino,junho 2025,216,4.77,Financeiro, 2025
+Valkênia R. de Araújo Soares,junho 2025,204,4.39,Financeiro, 2025
+Renata Alves Henriques,junho 2025,167,4.72,Financeiro, 2025
+Maxsuel Borges da Silva,junho 2025,96,4.65,Financeiro, 2025
 
-André Luís Albuquerque Araújo,janeiro 2024,289,4.83,Estoque
-André Luís Albuquerque Araújo,fevereiro 2024,260,4.79,Estoque
-André Luís Albuquerque Araújo,março 2024,346,4.80,Estoque
-André Luís Albuquerque Araújo,abril 2024,321,4.77,Estoque
-André Luís Albuquerque Araújo,maio 2024,288,4.84,Estoque
-André Luís Albuquerque Araújo,junho 2024,211,4.82,Estoque
-André Luís Albuquerque Araújo,julho 2024,129,4.92,Estoque
-André Luís Albuquerque Araújo,agosto 2024,247,4.80,Estoque
-André Luís Albuquerque Araújo,setembro 2024,100,4.70,Estoque
-André Luís Albuquerque Araújo,outubro 2024,189,4.81,Estoque
-André Luís Albuquerque Araújo,novembro 2024,124,4.88,Estoque
-André Luís Albuquerque Araújo,dezembro 2024,214,4.85,Estoque
-Christian Marinho Diniz,junho 2024,42,4.77,Estoque
-Christian Marinho Diniz,julho 2024,125,4.79,Estoque
-Christian Marinho Diniz,agosto 2024,108,4.65,Estoque
-Christian Marinho Diniz,setembro 2024,160,4.80,Estoque
-Christian Marinho Diniz,outubro 2024,146,4.68,Estoque
-Christian Marinho Diniz,novembro 2024,223,4.79,Estoque
-Christian Marinho Diniz,dezembro 2024,251,4.78,Estoque
-Diogo Pereira Basílio,janeiro 2024,328,4.68,Estoque
-Diogo Pereira Basílio,fevereiro 2024,265,4.71,Estoque
-Diogo Pereira Basílio,março 2024,316,4.69,Estoque
-Diogo Pereira Basílio,abril 2024,283,4.84,Estoque
-Diogo Pereira Basílio,maio 2024,262,4.86,Estoque
-Diogo Pereira Basílio,junho 2024,205,4.79,Estoque
-Diogo Pereira Basílio,julho 2024,232,4.87,Estoque
-Diogo Pereira Basílio,agosto 2024,164,4.80,Estoque
-Diogo Pereira Basílio,setembro 2024,220,4.91,Estoque
-André Luís Albuquerque Araújo,junho 2025,155,4.76,Estoque
-Christian Marinho Diniz,junho 2025,194,4.69,Estoque
-Diogo Basílio,junho 2025,222,4.80,Estoque
+André Luís Albuquerque Araújo,janeiro 2024,289,4.83,Estoque, 2024
+André Luís Albuquerque Araújo,fevereiro 2024,260,4.79,Estoque, 2024
+André Luís Albuquerque Araújo,março 2024,346,4.80,Estoque, 2024
+André Luís Albuquerque Araújo,abril 2024,321,4.77,Estoque, 2024
+André Luís Albuquerque Araújo,maio 2024,288,4.84,Estoque, 2024
+André Luís Albuquerque Araújo,junho 2024,211,4.82,Estoque, 2024
+André Luís Albuquerque Araújo,julho 2024,129,4.92,Estoque, 2024
+André Luís Albuquerque Araújo,agosto 2024,247,4.80,Estoque, 2024
+André Luís Albuquerque Araújo,setembro 2024,100,4.70,Estoque, 2024
+André Luís Albuquerque Araújo,outubro 2024,189,4.81,Estoque, 2024
+André Luís Albuquerque Araújo,novembro 2024,124,4.88,Estoque, 2024
+André Luís Albuquerque Araújo,dezembro 2024,214,4.85,Estoque, 2024
+Christian Marinho Diniz,junho 2024,42,4.77,Estoque, 2024
+Christian Marinho Diniz,julho 2024,125,4.79,Estoque, 2024
+Christian Marinho Diniz,agosto 2024,108,4.65,Estoque, 2024
+Christian Marinho Diniz,setembro 2024,160,4.80,Estoque, 2024
+Christian Marinho Diniz,outubro 2024,146,4.68,Estoque, 2024
+Christian Marinho Diniz,novembro 2024,223,4.79,Estoque, 2024
+Christian Marinho Diniz,dezembro 2024,251,4.78,Estoque, 2024
+Diogo Pereira Basílio,janeiro 2024,328,4.68,Estoque, 2024
+Diogo Pereira Basílio,fevereiro 2024,265,4.71,Estoque, 2024
+Diogo Pereira Basílio,março 2024,316,4.69,Estoque, 2024
+Diogo Pereira Basílio,abril 2024,283,4.84,Estoque, 2024
+Diogo Pereira Basílio,maio 2024,262,4.86,Estoque, 2024
+Diogo Pereira Basílio,junho 2024,205,4.79,Estoque, 2024
+Diogo Pereira Basílio,julho 2024,232,4.87,Estoque, 2024
+Diogo Pereira Basílio,agosto 2024,164,4.80,Estoque, 2024
+Diogo Pereira Basílio,setembro 2024,220,4.91,Estoque, 2024
+André Luís Albuquerque Araújo,junho 2025,155,4.76,Estoque, 2025
+Christian Marinho Diniz,junho 2025,194,4.69,Estoque, 2025
+Diogo Basílio,junho 2025,222,4.80,Estoque, 2025
 
-Diogo Pereira Basílio,outubro 2024,87,4.96,Integrações
-Diogo Pereira Basílio,novembro 2024,68,4.94,Integrações
-Diogo Pereira Basílio,dezembro 2024,116,4.86,Integrações
-Diego Rair Alves de Sousa,junho 2024,53,4.74,Integrações
-Diego Rair Alves de Sousa,julho 2024,157,4.81,Integrações
-Diego Rair Alves de Sousa,agosto 2024,179,4.85,Integrações
-Diego Rair Alves de Sousa,setembro 2024,217,4.91,Integrações
-Diego Rair Alves de Sousa,outubro 2024,201,4.91,Integrações
-Diego Rair Alves de Sousa,novembro 2024,151,4.85,Integrações
-Diego Rair Alves de Sousa,dezembro 2024,139,4.90,Integrações
-André Yuri Rangel Ribeiro,agosto 2024,161,4.79,Integrações
-André Yuri Rangel Ribeiro,outubro 2024,261,4.83,Integrações
-André Yuri Rangel Ribeiro,novembro 2024,302,4.83,Integrações
-André Yuri Rangel Ribeiro,dezembro 2024,211,4.80,Integrações
-Diogo Basílio,junho 2025,222,4.80,Suporte Integrações Gerais
-Diego Rair de Souza,junho 2025,244,4.76,Suporte Integrações Gerais
-André Yuri Ribeiro,junho 2025,321,4.75,Integrações
+Diogo Pereira Basílio,outubro 2024,87,4.96,Integrações, 2024
+Diogo Pereira Basílio,novembro 2024,68,4.94,Integrações, 2024
+Diogo Pereira Basílio,dezembro 2024,116,4.86,Integrações, 2024
+Diego Rair Alves de Sousa,junho 2024,53,4.74,Integrações, 2024
+Diego Rair Alves de Sousa,julho 2024,157,4.81,Integrações, 2024
+Diego Rair Alves de Sousa,agosto 2024,179,4.85,Integrações, 2024
+Diego Rair Alves de Sousa,setembro 2024,217,4.91,Integrações, 2024
+Diego Rair Alves de Sousa,outubro 2024,201,4.91,Integrações, 2024
+Diego Rair Alves de Sousa,novembro 2024,151,4.85,Integrações, 2024
+Diego Rair Alves de Sousa,dezembro 2024,139,4.90,Integrações, 2024
+André Yuri Rangel Ribeiro,agosto 2024,161,4.79,Integrações, 2024
+André Yuri Rangel Ribeiro,outubro 2024,261,4.83,Integrações, 2024
+André Yuri Rangel Ribeiro,novembro 2024,302,4.83,Integrações, 2024
+André Yuri Rangel Ribeiro,dezembro 2024,211,4.80,Integrações, 2024
+Diogo Basílio,junho 2025,222,4.80,Suporte Integrações Gerais, 2025
+Diego Rair de Souza,junho 2025,244,4.76,Suporte Integrações Gerais, 2025
+André Yuri Ribeiro,junho 2025,321,4.75,Integrações, 2025
 
-Janaína Francisca da Silva,agosto 2024,115,4.80,Fiscal
-Janaína Francisca da Silva,setembro 2024,168,4.71,Fiscal
-Janaína Francisca da Silva,outubro 2024,199,4.75,Fiscal
-Janaína Francisca da Silva,novembro 2024,180,4.69,Fiscal
-Janaína Francisca da Silva,dezembro 2024,240,4.66,Fiscal
-Luiz Henrique Pereira dos Santos,junho 2024,29,4.60,Fiscal
-Luiz Henrique Pereira dos Santos,julho 2024,130,4.61,Fiscal
-Luiz Henrique Pereira dos Santos,agosto 2024,169,4.80,Fiscal
-Luiz Henrique Pereira dos Santos,setembro 2024,225,4.85,Fiscal
-Luiz Henrique Pereira dos Santos,outubro 2024,215,4.95,Fiscal
-Luiz Henrique Pereira dos Santos,novembro 2024,219,4.91,Fiscal
-Luiz Henrique Pereira dos Santos,dezembro 2024,234,4.81,Fiscal
-Michele Ferreira Nóbrega,janeiro 2024,320,4.85,Fiscal
-Michele Ferreira Nóbrega,fevereiro 2024,354,4.80,Fiscal
-Michele Ferreira Nóbrega,março 2024,350,4.85,Fiscal
-Michele Ferreira Nóbrega,abril 2024,374,4.83,Fiscal
-Michele Ferreira Nóbrega,maio 2024,347,4.81,Fiscal
-Michele Ferreira Nóbrega,junho 2024,280,4.83,Fiscal
-Michele Ferreira Nóbrega,julho 2024,187,4.84,Fiscal
-Michele Ferreira Nóbrega,agosto 2024,115,4.68,Fiscal
-Michele Ferreira Nóbrega,setembro 2024,82,4.55,Fiscal
-Michele Ferreira Nóbrega,novembro 2024,42,4.68,Fiscal
-Michele Ferreira Nóbrega,dezembro 2024,92,4.89,Fiscal
-Janaína Francisca da Silva,junho 2025,276,4.71,Fiscal
-Luiz Henrique Pereira dos Santos,junho 2025,268,4.80,Fiscal
-Michele Ferreira Nóbrega,junho 2025,637,4.66,Fiscal
+Janaína Francisca da Silva,agosto 2024,115,4.80,Fiscal, 2024
+Janaína Francisca da Silva,setembro 2024,168,4.71,Fiscal, 2024
+Janaína Francisca da Silva,outubro 2024,199,4.75,Fiscal, 2024
+Janaína Francisca da Silva,novembro 2024,180,4.69,Fiscal, 2024
+Janaína Francisca da Silva,dezembro 2024,240,4.66,Fiscal, 2024
+Luiz Henrique Pereira dos Santos,junho 2024,29,4.60,Fiscal, 2024
+Luiz Henrique Pereira dos Santos,julho 2024,130,4.61,Fiscal, 2024
+Luiz Henrique Pereira dos Santos,agosto 2024,169,4.80,Fiscal, 2024
+Luiz Henrique Pereira dos Santos,setembro 2024,225,4.85,Fiscal, 2024
+Luiz Henrique Pereira dos Santos,outubro 2024,215,4.95,Fiscal, 2024
+Luiz Henrique Pereira dos Santos,novembro 2024,219,4.91,Fiscal, 2024
+Luiz Henrique Pereira dos Santos,dezembro 2024,234,4.81,Fiscal, 2024
+Michele Ferreira Nóbrega,janeiro 2024,320,4.85,Fiscal, 2024
+Michele Ferreira Nóbrega,fevereiro 2024,354,4.80,Fiscal, 2024
+Michele Ferreira Nóbrega,março 2024,350,4.85,Fiscal, 2024
+Michele Ferreira Nóbrega,abril 2024,374,4.83,Fiscal, 2024
+Michele Ferreira Nóbrega,maio 2024,347,4.81,Fiscal, 2024
+Michele Ferreira Nóbrega,junho 2024,280,4.83,Fiscal, 2024
+Michele Ferreira Nóbrega,julho 2024,187,4.84,Fiscal, 2024
+Michele Ferreira Nóbrega,agosto 2024,115,4.68,Fiscal, 2024
+Michele Ferreira Nóbrega,setembro 2024,82,4.55,Fiscal, 2024
+Michele Ferreira Nóbrega,novembro 2024,42,4.68,Fiscal, 2024
+Michele Ferreira Nóbrega,dezembro 2024,92,4.89,Fiscal, 2024
+Janaína Francisca da Silva,junho 2025,276,4.71,Fiscal, 2025
+Luiz Henrique Pereira dos Santos,junho 2025,268,4.80,Fiscal, 2025
+Michele Ferreira Nóbrega,junho 2025,637,4.66,Fiscal, 2025

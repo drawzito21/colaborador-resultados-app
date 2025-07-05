@@ -1,31 +1,45 @@
 import React from "react";
-import { styles } from "../styles";
 
-export default function DataTable({ rows, theme }) {
-  if (!rows.length) return null;
-
+function DataTable({ rows, theme }) {
   return (
-    <table style={{ ...styles.table }}>
+    <table style={{ width: "100%", borderCollapse: "collapse", marginTop: "16px" }}>
       <thead>
         <tr>
-          <th style={{ ...styles.th, backgroundColor: theme.tableHeader, border: `1px solid ${theme.tableBorder}`, color: theme.text }}>Nome</th>
-          <th style={{ ...styles.th, backgroundColor: theme.tableHeader, border: `1px solid ${theme.tableBorder}`, color: theme.text }}>Mês</th>
-          <th style={{ ...styles.th, backgroundColor: theme.tableHeader, border: `1px solid ${theme.tableBorder}`, color: theme.text }}>Finalizados</th>
-          <th style={{ ...styles.th, backgroundColor: theme.tableHeader, border: `1px solid ${theme.tableBorder}`, color: theme.text }}>Score</th>
-          <th style={{ ...styles.th, backgroundColor: theme.tableHeader, border: `1px solid ${theme.tableBorder}`, color: theme.text }}>Setor</th>
+          <th style={headerStyle}>Nome</th>
+          <th style={headerStyle}>Setor</th>
+          <th style={headerStyle}>Ano</th>
+          <th style={headerStyle}>Mês</th>
+          <th style={headerStyle}>Score</th>
         </tr>
       </thead>
       <tbody>
-        {rows.map((row, i) => (
-          <tr key={i}>
-            <td style={{ ...styles.td, border: `1px solid ${theme.tableBorder}` }}>{row.Nome}</td>
-            <td style={{ ...styles.td, border: `1px solid ${theme.tableBorder}` }}>{row.Mes}</td>
-            <td style={{ ...styles.td, border: `1px solid ${theme.tableBorder}` }}>{row.Finalizados}</td>
-            <td style={{ ...styles.td, border: `1px solid ${theme.tableBorder}` }}>{row.Score}</td>
-            <td style={{ ...styles.td, border: `1px solid ${theme.tableBorder}` }}>{row.Setor}</td>
+        {rows.map((row, idx) => (
+          <tr key={idx} style={{ backgroundColor: idx % 2 === 0 ? "#f9f9f9" : "#fff" }}>
+            <td style={cellStyle}>{row.Nome}</td>
+            <td style={cellStyle}>{row.Setor}</td>
+            <td style={cellStyle}>{row.Ano}</td>
+            <td style={cellStyle}>{row.Mes}</td>
+            <td style={cellStyle}>{row.Score}</td>
           </tr>
         ))}
       </tbody>
     </table>
   );
 }
+
+const headerStyle = {
+  textAlign: "left",
+  padding: "12px",
+  backgroundColor: "#eaeaea",
+  fontWeight: "bold",
+  fontSize: "14px"
+};
+
+const cellStyle = {
+  padding: "12px",
+  fontSize: "14px",
+  borderBottom: "1px solid #ddd"
+};
+
+export default DataTable;
+
