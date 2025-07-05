@@ -19,6 +19,52 @@ const Home = () => {
         </div>
       ))}
     </div>
+    <div
+  style={{
+    display: "flex",
+    flexWrap: "wrap",
+    gap: "24px",
+    marginBottom: "24px",
+    alignItems: "flex-start"
+  }}
+>
+  <div style={{ flex: "1 1 240px" }}>
+    <NameDropdown
+      names={uniqueNames}
+      selected={selectedName}
+      onChange={handleSelectChange}
+    />
+  </div>
+
+  <div style={{ flex: "1 1 240px" }}>
+    <NameDropdown
+      names={uniqueSetores}
+      selected={selectedSetor}
+      onChange={(e) => setSelectedSetor(e.target.value)}
+    />
+  </div>
+  const uniqueSetores = useMemo(() => {
+  const setores = new Set();
+  data.forEach((item) => item.Setor && setores.add(item.Setor));
+  return Array.from(setores).sort();
+}, [data]);
+
+const uniqueMeses = useMemo(() => {
+  const meses = new Set();
+  data.forEach((item) => item.Mes && meses.add(item.Mes));
+  return Array.from(meses).sort();
+}, [data]);
+
+
+  <div style={{ flex: "1 1 240px" }}>
+    <NameDropdown
+      names={uniqueMeses}
+      selected={selectedMes}
+      onChange={(e) => setSelectedMes(e.target.value)}
+    />
+  </div>
+</div>
+
   );
 };
 export default Home;

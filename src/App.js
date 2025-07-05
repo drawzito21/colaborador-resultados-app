@@ -5,14 +5,14 @@ import Papa from "papaparse";
 import { styles } from "./styles";
 import { lightTheme, darkTheme } from "./theme";
 import { exportCsv } from "./utils/exportCsv";
-import SearchInput from "./components/SearchInput";
-import NameDropdown from "./components/NameDropdown";
-import DataTable from "./components/DataTable";
-import DarkModeToggle from "./components/DarkModeToggle";
-import PerformanceChart from "./components/PerformanceChart";
+import {
+  NameDropdown,
+  DarkModeToggle,
+  DataTable,
+  PerformanceChart
+} from "./components";
 import Registro from "./pages/Registro";
 
-// ✅ Botão que navega até a tela de registro
 const BotaoRegistro = ({ colaborador }) => {
   const navigate = useNavigate();
 
@@ -26,13 +26,14 @@ const BotaoRegistro = ({ colaborador }) => {
     <button
       onClick={handleClick}
       style={{
-        padding: '8px 16px',
-        backgroundColor: '#4caf50',
-        color: '#fff',
-        border: 'none',
-        borderRadius: '4px',
-        cursor: 'pointer',
-        marginTop: '12px'
+        padding: "8px 16px",
+        backgroundColor: "#4caf50",
+        color: "#fff",
+        border: "none",
+        borderRadius: "4px",
+        cursor: "pointer",
+        margin: "8px 0",
+        minWidth: "200px"
       }}
     >
       📝 Registrar para {colaborador.nome}
@@ -42,8 +43,9 @@ const BotaoRegistro = ({ colaborador }) => {
 
 function App() {
   const [data, setData] = useState([]);
-  const [filterText, setFilterText] = useState("");
   const [selectedName, setSelectedName] = useState("");
+  const [selectedSetor, setSelectedSetor] = useState("");
+  const [selectedMes, setSelectedMes] = useState("");
   const [darkMode, setDarkMode] = useState(false);
 
   const theme = darkMode ? darkTheme : lightTheme;
@@ -56,7 +58,7 @@ function App() {
           header: true,
           skipEmptyLines: true,
           transformHeader: (h) => h.trim(),
-          transform: (v) => v.trim(),
+          transform: (v) => v.trim()
         });
         setData(results.data);
       });
@@ -68,33 +70,29 @@ function App() {
     return Array.from(names).sort();
   }, [data]);
 
-  const filteredNames = useMemo(() => {
-    if (!filterText.trim()) return uniqueNames;
-    return uniqueNames.filter((n) =>
-      n.toLowerCase().includes(filterText.toLowerCase())
-    );
-  }, [filterText, uniqueNames]);
+  const uniqueSetores = useMemo(() => {
+    const setores = new Set();
+    data.forEach((item) => item.Setor && setores.add(item.Setor));
+    return Array.from(setores).sort();
+  }, [data]);
+
+  const uniqueMeses = useMemo(() => {
+    const meses = new Set();
+    data.forEach((item) => item.Mes && meses.add(item.Mes));
+    return Array.from(meses).sort();
+  }, [data]);
 
   const displayData = useMemo(() => {
-    if (selectedName) {
-      return data.filter((d) => d.Nome === selectedName);
-    }
-    if (filterText.trim()) {
-      return data.filter((d) =>
-        d.Nome.toLowerCase().includes(filterText.toLowerCase())
-      );
-    }
-    return [];
-  }, [selectedName, filterText, data]);
+    return data.filter((d) => {
+      const matchName = selectedName ? d.Nome === selectedName : true;
+      const matchSetor = selectedSetor ? d.Setor === selectedSetor : true;
+      const matchMes = selectedMes ? d.Mes === selectedMes : true;
+      return matchName && matchSetor && matchMes;
+    });
+  }, [selectedName, selectedSetor, selectedMes, data]);
 
   const handleSelectChange = (e) => {
     setSelectedName(e.target.value);
-    setFilterText("");
-  };
-
-  const handleInputChange = (e) => {
-    setFilterText(e.target.value);
-    setSelectedName("");
   };
 
   const handleExportCsv = () => {
@@ -106,7 +104,7 @@ function App() {
       style={{
         ...styles.container,
         backgroundColor: theme.background,
-        color: theme.text,
+        color: theme.text
       }}
     >
       <DarkModeToggle
@@ -116,26 +114,43 @@ function App() {
 
       <h2 style={styles.title}>Buscar Colaborador Versão 4</h2>
 
-      <div style={{ display: "flex", gap: "8px", marginBottom: 20, flexWrap: "wrap" }}>
-        <SearchInput
-          value={filterText}
-          onChange={handleInputChange}
-          suggestions={uniqueNames}
-          onSelect={(nome) => {
-            setFilterText(nome);
-            setSelectedName("");
-          }}
-        />
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          gap: "24px",
+          marginBottom: "24px",
+          alignItems: "flex-start"
+        }}
+      >
+        <div style={{ flex: "1 1 240px" }}>
+          <NameDropdown
+            names={uniqueNames}
+            selected={selectedName}
+            onChange={handleSelectChange}
+          />
+        </div>
 
-        <NameDropdown
-          names={filteredNames}
-          selected={selectedName}
-          onChange={handleSelectChange}
-        />
+        <div style={{ flex: "1 1 240px" }}>
+          <NameDropdown
+            names={uniqueSetores}
+            selected={selectedSetor}
+            onChange={(e) => setSelectedSetor(e.target.value)}
+          />
+        </div>
+
+        <div style={{ flex: "1 1 240px" }}>
+          <NameDropdown
+            names={uniqueMeses}
+            selected={selectedMes}
+            onChange={(e) => setSelectedMes(e.target.value)}
+          />
+        </div>
       </div>
 
-      {(filterText || selectedName) &&
-        displayData.length === 0 && data.length > 0 && (
+      {(selectedName || selectedSetor || selectedMes) &&
+        displayData.length === 0 &&
+        data.length > 0 && (
           <p style={styles.noResult}>🔍 Nenhum resultado encontrado.</p>
         )}
 
@@ -143,12 +158,31 @@ function App() {
         <>
           <DataTable rows={displayData} theme={theme} />
 
-          <div style={{ display: 'flex', gap: '12px', marginTop: '12px', flexWrap: 'wrap' }}>
-            <button onClick={handleExportCsv} style={styles.exportButton}>
-              📤 Exportar CSV
-            </button>
+          <div
+            style={{
+              display: "flex",
+              gap: "12px",
+              marginTop: "12px",
+              flexWrap: "wrap",
+              alignItems: "flex-start"
+            }}
+          >
+            <div style={{ flex: "1", minWidth: "200px" }}>
+              <button
+                onClick={handleExportCsv}
+                style={{
+                  ...styles.exportButton,
+                  margin: "8px 0",
+                  minWidth: "100%"
+                }}
+              >
+                📤 Exportar CSV
+              </button>
+            </div>
 
-            <BotaoRegistro colaborador={displayData[0]} />
+            <div style={{ flex: "1", minWidth: "200px" }}>
+              <BotaoRegistro colaborador={displayData[0]} />
+            </div>
           </div>
 
           <PerformanceChart data={displayData} theme={theme} />
