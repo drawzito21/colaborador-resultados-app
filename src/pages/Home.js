@@ -34,6 +34,7 @@ export default function Home({
             names={uniqueNames}
             selected={selectedName}
             onChange={(e) => setSelectedName(e.target.value)}
+            label="Selecione o colaborador"
           />
         </div>
 
@@ -42,6 +43,7 @@ export default function Home({
             names={uniqueSetores}
             selected={selectedSetor}
             onChange={(e) => setSelectedSetor(e.target.value)}
+            label="Selecione o setor"
           />
         </div>
 
@@ -50,6 +52,7 @@ export default function Home({
             names={uniqueAnos}
             selected={selectedAno}
             onChange={(e) => setSelectedAno(e.target.value)}
+            label="Selecione o ano"
           />
         </div>
 
@@ -58,6 +61,7 @@ export default function Home({
             names={uniqueMeses}
             selected={selectedMes}
             onChange={(e) => setSelectedMes(e.target.value)}
+            label="Selecione o mês"
           />
         </div>
       </div>
