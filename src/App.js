@@ -45,15 +45,19 @@ function App() {
           const anoLimpo = item.Ano?.toString().trim() || "";
 
           return {
-            Nome: item.Nome,
-            Setor: item.Setor,
-            Mês: mesLimpo,
-            MesValor: mesLimpo,
-            Assumidos: item.Assumidos,
-            Finalizados: item.Finalizados,
-            Score: scoreLimpo,
-            Ano: anoLimpo
-          };
+  Nome: item.Nome,
+  Setor: item.Setor,
+  Mês: mesLimpo,
+  MesValor: mesLimpo,
+  Assumidos: item.Assumidos,
+  Finalizados: item.Finalizados,
+  Score: scoreLimpo,
+  Ano: anoLimpo,
+  Notas1: parseInt(item.Notas1 || "0", 10),
+  Notas2: parseInt(item.Notas2 || "0", 10),
+  Notas3: parseInt(item.Notas3 || "0", 10)
+};
+
         });
 
         setData(dadosFormatados);
