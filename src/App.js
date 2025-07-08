@@ -170,17 +170,27 @@ function App() {
 
       {filtrosAtivos && displayData.length > 0 && (
         <div
-          style={{
-            backgroundColor: "#fff",
-            borderRadius: "10px",
-            boxShadow: "0 2px 6px rgba(0,0,0,0.08)",
-            padding: "32px",
-            marginTop: "32px"
-          }}
-        >
-          <h3 style={{ marginBottom: "16px", fontSize: "20px" }}>
-            📊 Resultados filtrados
-          </h3>
+  style={{
+    backgroundColor: theme.tableBackground || theme.background,
+    color: theme.text,
+    borderRadius: "10px",
+    boxShadow: "0 2px 6px rgba(0,0,0,0.2)",
+    padding: "32px",
+    marginTop: "32px"
+  }}
+>
+
+          <h3
+  style={{
+    marginBottom: "16px",
+    fontSize: "20px",
+    color: theme.text // <-- Agora com a cor correta do tema
+  }}
+>
+  📊 Resultados filtrados
+</h3>
+
+
 
           <DataTable rows={displayData} theme={theme} />
 
