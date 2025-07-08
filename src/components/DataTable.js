@@ -4,11 +4,13 @@ function DataTable({ rows, theme }) {
   const columnWidth = "15%";
 
   const cellStyle = {
-    padding: "8px",
-    borderBottom: "1px solid #eee",
-    textAlign: "center",
-    width: columnWidth
-  };
+  padding: "8px",
+  borderBottom: `1px solid ${theme.tableBorder || "#ccc"}`,
+  textAlign: "center",
+  width: columnWidth,
+  backgroundColor: theme.rowBackground || theme.background,
+  color: theme.rowText || theme.text
+};
 
   const headerStyle = {
     padding: "8px",

@@ -138,7 +138,15 @@ export default function PerformanceChart({ data, theme }) {
 
   };
   return (
-    <div style={{ marginTop: 40 }}>
+  <div
+    style={{
+      marginTop: 40,
+      backgroundColor: theme.tableBackground || theme.background,
+      padding: 24,
+      borderRadius: 10,
+    }}
+  >
+
       <h3 style={{ color: theme.text }}>📈 Evolução mensal do colaborador</h3>
       <Line data={chartData} options={options} />
     </div>
