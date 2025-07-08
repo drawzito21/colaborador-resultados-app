@@ -26,24 +26,51 @@ function App() {
   const theme = darkMode ? darkTheme : lightTheme;
 
   useEffect(() => {
-    fetch("/dados_v4.csv")
-      .then((res) => res.text())
-      .then((csvText) => {
-        const results = Papa.parse(csvText, {
-          header: true,
-          skipEmptyLines: true,
-          transformHeader: (h) => h.trim(),
-          transform: (v) => v.trim()
-        });
-        setData(results.data);
+  fetch("/dados_v4.csv")
+    .then((res) => res.text())
+    .then((csvText) => {
+      const results = Papa.parse(csvText, {
+        header: true,
+        skipEmptyLines: true,
+        transformHeader: (h) => h.trim(),
+        transform: (v) => v.trim()
       });
-  }, []);
+
+      const dadosFormatados = results.data.map((item) => {
+        const mesLimpo = item.Mês?.trim().toLowerCase() || "";
+        const scoreLimpo = item.Score
+          ? parseFloat(String(item.Score).replace(",", "."))
+          : 0;
+        const anoLimpo = item.Ano?.toString().trim() || "";
+
+        return {
+          Nome: item.Nome,
+          Setor: item.Setor,
+          Mês: mesLimpo,
+          MesValor: mesLimpo,
+          Assumidos: item.Assumidos,
+          Finalizados: item.Finalizados,
+          Score: scoreLimpo,
+          Ano: anoLimpo
+        };
+      });
+
+      setData(dadosFormatados);
+    });
+}, []);
+
 
   const uniqueNames = useMemo(() => {
-    const names = new Set();
-    data.forEach((item) => item.Nome && names.add(item.Nome));
-    return Array.from(names).sort();
-  }, [data]);
+  const names = new Set();
+  data.forEach((item) => {
+    const matchSetor = selectedSetor ? item.Setor === selectedSetor : true;
+    if (item.Nome && matchSetor) {
+      names.add(item.Nome);
+    }
+  });
+  return Array.from(names).sort();
+}, [data, selectedSetor]);
+
 
   const uniqueSetores = useMemo(() => {
     const setores = new Set();
@@ -52,10 +79,15 @@ function App() {
   }, [data]);
 
   const uniqueAnos = useMemo(() => {
-    const anos = new Set();
-    data.forEach((item) => item.Ano && anos.add(item.Ano));
-    return Array.from(anos).sort().reverse();
-  }, [data]);
+  const anos = new Set();
+  data.forEach((item) => {
+    if (item.Ano) {
+      anos.add(item.Ano.toString().trim());
+    }
+  });
+  return Array.from(anos).sort().reverse();
+}, [data]);
+
 
   const ordemMeses = [
     "janeiro", "fevereiro", "março", "abril", "maio", "junho",
@@ -65,11 +97,8 @@ function App() {
   const uniqueMeses = useMemo(() => {
     const mesesSet = new Set();
     data.forEach((item) => {
-      if (item.Mes) {
-        const partes = item.Mes.trim().split(" ");
-        if (partes.length >= 1) {
-          mesesSet.add(partes[0].toLowerCase());
-        }
+      if (item.MesValor) {
+        mesesSet.add(item.MesValor);
       }
     });
     const mesesArray = Array.from(mesesSet);
@@ -78,12 +107,10 @@ function App() {
 
   const displayData = useMemo(() => {
     return data.filter((d) => {
-      const partesMes = d.Mes ? d.Mes.toLowerCase().trim().split(" ") : [];
-      const mesTexto = partesMes[0] || "";
       const matchName = selectedName ? d.Nome === selectedName : true;
       const matchSetor = selectedSetor ? d.Setor === selectedSetor : true;
-      const matchAno = selectedAno ? d.Ano.trim() === selectedAno : true;
-      const matchMes = selectedMes ? mesTexto === selectedMes : true;
+      const matchAno = selectedAno ? d.Ano === selectedAno : true;
+      const matchMes = selectedMes ? d.MesValor === selectedMes : true;
       return matchName && matchSetor && matchAno && matchMes;
     });
   }, [selectedName, selectedSetor, selectedAno, selectedMes, data]);
@@ -178,7 +205,7 @@ function App() {
                 minWidth: "160px"
               }}
             >
-              📝 Registrar para {displayData[0].nome}
+              📝 Registrar para {displayData[0].Nome}
             </button>
           </div>
 

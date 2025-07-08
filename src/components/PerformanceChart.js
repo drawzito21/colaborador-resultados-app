@@ -17,7 +17,7 @@ export default function PerformanceChart({ data, theme }) {
     const agrupadoPorMes = {};
 
     data.forEach((item) => {
-      const mes = item.Mes;
+     const mes = `${item.Mês}/${item.Ano}`;
       const score = parseFloat(item.Score);
       const finalizados = parseInt(item.Finalizados, 10);
 
@@ -100,33 +100,42 @@ export default function PerformanceChart({ data, theme }) {
 
     },
     scales: {
-      x: {
-        ticks: { color: theme.text },
-      },
-      y: {
-        type: "linear",
-        display: true,
-        position: "left",
-        ticks: { color: theme.text },
-        title: {
-          display: true,
-          text: "Score",
-          color: theme.text,
-        },
-      },
-      y1: {
-        type: "linear",
-        display: true,
-        position: "right",
-        grid: { drawOnChartArea: false },
-        ticks: { color: theme.text },
-        title: {
-          display: true,
-          text: "Finalizados",
-          color: theme.text,
-        },
-      },
+  x: {
+    ticks: { color: theme.text },
+  },
+  y: {
+    type: "linear",
+    position: "left",
+    min: 0,
+    max: 5, // se quiser que o Score fique sempre entre 0 e 5
+    ticks: {
+      stepSize: 0.25, // deixa os pontos mais próximos
+      color: theme.text,
     },
+    title: {
+      display: true,
+      text: "Score",
+      color: theme.text,
+    },
+  },
+  y1: {
+    type: "linear",
+    position: "right",
+    grid: { drawOnChartArea: false },
+    min: 0,
+    max: 500, // ajuste conforme a média de "Finalizados" que você tem
+    ticks: {
+      stepSize: 50,
+      color: theme.text,
+    },
+    title: {
+      display: true,
+      text: "Finalizados",
+      color: theme.text,
+    },
+  },
+}
+
   };
   return (
     <div style={{ marginTop: 40 }}>
