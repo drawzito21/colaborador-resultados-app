@@ -22,55 +22,54 @@ function App() {
   const [selectedAno, setSelectedAno] = useState("");
   const [selectedMes, setSelectedMes] = useState("");
   const [darkMode, setDarkMode] = useState(false);
+  const [filtrosLimpos, setFiltrosLimpos] = useState(false);
 
   const theme = darkMode ? darkTheme : lightTheme;
 
   useEffect(() => {
-  fetch("/dados_v4.csv")
-    .then((res) => res.text())
-    .then((csvText) => {
-      const results = Papa.parse(csvText, {
-        header: true,
-        skipEmptyLines: true,
-        transformHeader: (h) => h.trim(),
-        transform: (v) => v.trim()
+    fetch("/dados_v4.csv")
+      .then((res) => res.text())
+      .then((csvText) => {
+        const results = Papa.parse(csvText, {
+          header: true,
+          skipEmptyLines: true,
+          transformHeader: (h) => h.trim(),
+          transform: (v) => v.trim()
+        });
+
+        const dadosFormatados = results.data.map((item) => {
+          const mesLimpo = item.Mês?.trim().toLowerCase() || "";
+          const scoreLimpo = item.Score
+            ? parseFloat(String(item.Score).replace(",", "."))
+            : 0;
+          const anoLimpo = item.Ano?.toString().trim() || "";
+
+          return {
+            Nome: item.Nome,
+            Setor: item.Setor,
+            Mês: mesLimpo,
+            MesValor: mesLimpo,
+            Assumidos: item.Assumidos,
+            Finalizados: item.Finalizados,
+            Score: scoreLimpo,
+            Ano: anoLimpo
+          };
+        });
+
+        setData(dadosFormatados);
       });
-
-      const dadosFormatados = results.data.map((item) => {
-        const mesLimpo = item.Mês?.trim().toLowerCase() || "";
-        const scoreLimpo = item.Score
-          ? parseFloat(String(item.Score).replace(",", "."))
-          : 0;
-        const anoLimpo = item.Ano?.toString().trim() || "";
-
-        return {
-          Nome: item.Nome,
-          Setor: item.Setor,
-          Mês: mesLimpo,
-          MesValor: mesLimpo,
-          Assumidos: item.Assumidos,
-          Finalizados: item.Finalizados,
-          Score: scoreLimpo,
-          Ano: anoLimpo
-        };
-      });
-
-      setData(dadosFormatados);
-    });
-}, []);
-
+  }, []);
 
   const uniqueNames = useMemo(() => {
-  const names = new Set();
-  data.forEach((item) => {
-    const matchSetor = selectedSetor ? item.Setor === selectedSetor : true;
-    if (item.Nome && matchSetor) {
-      names.add(item.Nome);
-    }
-  });
-  return Array.from(names).sort();
-}, [data, selectedSetor]);
-
+    const names = new Set();
+    data.forEach((item) => {
+      const matchSetor = selectedSetor ? item.Setor === selectedSetor : true;
+      if (item.Nome && matchSetor) {
+        names.add(item.Nome);
+      }
+    });
+    return Array.from(names).sort();
+  }, [data, selectedSetor]);
 
   const uniqueSetores = useMemo(() => {
     const setores = new Set();
@@ -79,15 +78,14 @@ function App() {
   }, [data]);
 
   const uniqueAnos = useMemo(() => {
-  const anos = new Set();
-  data.forEach((item) => {
-    if (item.Ano) {
-      anos.add(item.Ano.toString().trim());
-    }
-  });
-  return Array.from(anos).sort().reverse();
-}, [data]);
-
+    const anos = new Set();
+    data.forEach((item) => {
+      if (item.Ano) {
+        anos.add(item.Ano.toString().trim());
+      }
+    });
+    return Array.from(anos).sort().reverse();
+  }, [data]);
 
   const ordemMeses = [
     "janeiro", "fevereiro", "março", "abril", "maio", "junho",
@@ -117,6 +115,15 @@ function App() {
 
   const handleExportCsv = () => {
     exportCsv(displayData, "colaboradores_filtrados.csv");
+  };
+
+  const limparFiltros = () => {
+    setSelectedName("");
+    setSelectedSetor("");
+    setSelectedAno("");
+    setSelectedMes("");
+    setFiltrosLimpos(true);
+    setTimeout(() => setFiltrosLimpos(false), 3000);
   };
 
   const filtrosAtivos = selectedName || selectedSetor || selectedAno || selectedMes;
@@ -207,7 +214,26 @@ function App() {
             >
               📝 Registrar para {displayData[0].Nome}
             </button>
+
+            {filtrosAtivos && (
+              <button
+                onClick={limparFiltros}
+                style={{
+                  ...styles.exportButton,
+                  backgroundColor: "#f44336",
+                  minWidth: "160px"
+                }}
+              >
+                🧹 Limpar Filtros
+              </button>
+            )}
           </div>
+
+          {filtrosLimpos && (
+            <p style={{ color: "#4caf50", marginTop: "12px", fontWeight: "bold" }}>
+              ✅ Filtros removidos
+            </p>
+          )}
 
           <div
             style={{
