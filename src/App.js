@@ -170,29 +170,28 @@ function App() {
 
       {filtrosAtivos && displayData.length > 0 && (
         <div
-  style={{
-    backgroundColor: theme.tableBackground || theme.background,
-    color: theme.text,
-    borderRadius: "10px",
-    boxShadow: "0 2px 6px rgba(0,0,0,0.2)",
-    padding: "32px",
-    marginTop: "32px"
-  }}
->
-
+          style={{
+            backgroundColor: theme.tableBackground || theme.background,
+            color: theme.text,
+            borderRadius: "10px",
+            boxShadow: "0 2px 6px rgba(0,0,0,0.2)",
+            padding: "32px",
+            marginTop: "32px"
+          }}
+        >
           <h3
-  style={{
-    marginBottom: "16px",
-    fontSize: "20px",
-    color: theme.text // <-- Agora com a cor correta do tema
-  }}
->
-  📊 Resultados filtrados
-</h3>
+            style={{
+              marginBottom: "16px",
+              fontSize: "20px",
+              color: theme.text
+            }}
+          >
+            📊 Resultados filtrados
+          </h3>
 
-
-
-          <DataTable rows={displayData} theme={theme} />
+          <div style={{ overflowX: "auto", width: "100%" }}>
+            <DataTable rows={displayData} theme={theme} />
+          </div>
 
           <div
             style={{
@@ -200,7 +199,9 @@ function App() {
               justifyContent: "flex-start",
               gap: "12px",
               marginTop: "24px",
-              flexWrap: "wrap"
+              flexWrap: "wrap",
+              flexDirection: window.innerWidth < 600 ? "column" : "row",
+              alignItems: window.innerWidth < 600 ? "stretch" : "center"
             }}
           >
             <button
@@ -250,7 +251,7 @@ function App() {
               marginTop: "32px",
               borderRadius: "10px",
               padding: "16px",
-              backgroundColor: "#fafafa"
+              backgroundColor: theme.tableBackground || theme.background
             }}
           >
             <PerformanceChart data={displayData} theme={theme} />
