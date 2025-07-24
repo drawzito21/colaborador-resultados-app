@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/colaborador-resultados-app/static/css/main.e6c13ad2.css",
+    "main.js": "/colaborador-resultados-app/static/js/main.c437a450.js",
+    "static/js/453.b6819e7a.chunk.js": "/colaborador-resultados-app/static/js/453.b6819e7a.chunk.js",
+    "index.html": "/colaborador-resultados-app/index.html",
+    "main.e6c13ad2.css.map": "/colaborador-resultados-app/static/css/main.e6c13ad2.css.map",
+    "main.c437a450.js.map": "/colaborador-resultados-app/static/js/main.c437a450.js.map",
+    "453.b6819e7a.chunk.js.map": "/colaborador-resultados-app/static/js/453.b6819e7a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.c437a450.js"
+  ]
+}
